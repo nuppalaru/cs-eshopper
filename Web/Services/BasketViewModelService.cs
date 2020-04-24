@@ -60,8 +60,7 @@ namespace Microsoft.eShopWeb.Web.Services
         }
 
         private async Task<List<BasketItemViewModel>> GetBasketItems(IReadOnlyCollection<BasketItem> basketItems)
-        {
-            int i = 0;
+        {           
             var items = new List<BasketItemViewModel>();
             foreach (var item in basketItems)
             {
@@ -69,7 +68,7 @@ namespace Microsoft.eShopWeb.Web.Services
                 {
                     Id = item.Id,
                     UnitPrice = item.UnitPrice,
-                    Quantity = item.Quantity/i,
+                    Quantity = item.Quantity,
                     CatalogItemId = item.CatalogItemId
                 };
                 var catalogItem = await _itemRepository.GetByIdAsync(item.CatalogItemId);
