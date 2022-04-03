@@ -1,4 +1,12 @@
 # Deploy to Azure Kubernetes Service
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Pay-As-You-Go(95396c1d-7396-4ad2-9cdb-bb4f86d3cf16)'
+    appType: 'webAppLinux'
+    WebAppName: 'challenger-eshopper'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    RuntimeStack: 'DOTNETCORE|3.1'
 # Build and push image to Azure Container Registry; Deploy to Azure Kubernetes Service
 # https://docs.microsoft.com/azure/devops/pipelines/languages/docker
 
